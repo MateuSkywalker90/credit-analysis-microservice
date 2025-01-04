@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mateus</groupId>
-	<artifactId>creditanalysis</artifactId>
+	<artifactId>credit-analysis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>creditanalysis</name>
 	<description>A microservice to perform customer credit analysis</description>

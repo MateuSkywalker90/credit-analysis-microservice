@@ -2,7 +2,9 @@ package com.mateus.creditanalysis.service.strategy.impl;
 
 import com.mateus.creditanalysis.domain.Proposals;
 import com.mateus.creditanalysis.service.strategy.ScoreCalculation;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SalaryGreaterThanLoanImpl implements ScoreCalculation {
 
     @Override
