@@ -3,19 +3,19 @@ package com.mateus.creditanalysis.service;
 import com.mateus.creditanalysis.domain.Proposals;
 import com.mateus.creditanalysis.exceptions.StrategyException;
 import com.mateus.creditanalysis.service.strategy.ScoreCalculation;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class CreditAnalysisService {
 
-    @Autowired
     private List<ScoreCalculation> scoreCalculationList;
 
-    @Autowired
     private RabbitMQNotificationService rabbitMQNotificationService;
 
     @Value("${rabbitmq.concludedproposal.exchange}")

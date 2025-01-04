@@ -11,6 +11,10 @@ public class Users {
 
     private String nome;
 
+    public String getNome() {
+        return nome;
+    }
+
     private String sobrenome;
 
     private String cpf;
@@ -19,4 +23,7 @@ public class Users {
 
     private Double renda;
 
+    public Double getRenda() {
+        return renda;
+    }
 }
