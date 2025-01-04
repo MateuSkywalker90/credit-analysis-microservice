@@ -9,6 +9,6 @@ public class PendingAnalysisListener {
 
     @RabbitListener(queues = "${rabbitmq.queue.proposta.pendente}")
     public void proposalUnderAnalysis(Proposals proposals) {
-        
+
     }
 }
