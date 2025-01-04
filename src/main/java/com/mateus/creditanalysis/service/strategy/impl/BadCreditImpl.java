@@ -2,10 +2,12 @@ package com.mateus.creditanalysis.service.strategy.impl;
 
 import com.mateus.creditanalysis.domain.Proposals;
 import com.mateus.creditanalysis.service.strategy.ScoreCalculation;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
+@Order(1)
 @Component
 public class BadCreditImpl implements ScoreCalculation {
 
