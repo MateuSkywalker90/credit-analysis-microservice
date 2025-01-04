@@ -1,5 +1,6 @@
 package com.mateus.creditanalysis.service.strategy.impl;
 
+import com.mateus.creditanalysis.constant.ConstantMessage;
 import com.mateus.creditanalysis.domain.Proposals;
 import com.mateus.creditanalysis.exceptions.StrategyException;
 import com.mateus.creditanalysis.service.strategy.ScoreCalculation;
@@ -16,8 +17,8 @@ public class CustomerScoreImpl implements ScoreCalculation {
     public int calculate(Proposals proposals) {
         int score = score();
 
-        if (score <= 300) {
-            throw new StrategyException("Poor score");
+        if (score < 300) {
+            throw new StrategyException(String.format(ConstantMessage.POOR_SCORE, proposals.getUsuario().getNome()));
         } else if (score <= 450) {
             return 150;
         } else if (score <= 600) {
