@@ -1,6 +1,7 @@
 package com.mateus.creditanalysis.service.strategy.impl;
 
 import com.mateus.creditanalysis.domain.Proposals;
+import com.mateus.creditanalysis.exceptions.StrategyException;
 import com.mateus.creditanalysis.service.strategy.ScoreCalculation;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,7 @@ public class CustomerScoreImpl implements ScoreCalculation {
         int score = score();
 
         if (score <= 300) {
-            throw new RuntimeException("Poor score");
+            throw new StrategyException("Poor score");
         } else if (score <= 450) {
             return 150;
         } else if (score <= 600) {
