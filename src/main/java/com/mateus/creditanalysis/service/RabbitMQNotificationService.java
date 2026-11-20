@@ -1,17 +1,19 @@
 package com.mateus.creditanalysis.service;
 
-import com.mateus.creditanalysis.domain.Proposals;
+import com.mateus.creditanalysis.domain.Proposal;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RabbitMQNotificationService {
 
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
+    private final RabbitTemplate rabbitTemplate;
 
-    public void notify(String exchange, Proposals proposals) {
-        rabbitTemplate.convertAndSend(exchange, "", proposals);
+    public RabbitMQNotificationService(RabbitTemplate rabbitTemplate) {
+        this.rabbitTemplate = rabbitTemplate;
+    }
+
+    public void notify(String exchange, Proposal proposal) {
+        rabbitTemplate.convertAndSend(exchange, "", proposal);
     }
 }

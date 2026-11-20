@@ -1,6 +1,6 @@
 package com.mateus.creditanalysis.listener;
 
-import com.mateus.creditanalysis.domain.Proposals;
+import com.mateus.creditanalysis.domain.Proposal;
 import com.mateus.creditanalysis.service.CreditAnalysisService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
@@ -14,8 +14,8 @@ public class PendingAnalysisListener {
         this.creditAnalysisService = creditAnalysisService;
     }
 
-    @RabbitListener(queues = "${rabbitmq.queue.proposta.pendente}")
-    public void proposalUnderAnalysis(Proposals proposals) {
-        creditAnalysisService.analysis(proposals);
+    @RabbitListener(queues = "${rabbitmq.queue.pending.proposal}")
+    public void proposalUnderAnalysis(Proposal proposal) {
+        creditAnalysisService.analyze(proposal);
     }
 }

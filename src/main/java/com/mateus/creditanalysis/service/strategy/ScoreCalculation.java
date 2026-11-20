@@ -1,8 +1,8 @@
 package com.mateus.creditanalysis.service.strategy;
 
-import com.mateus.creditanalysis.domain.Proposals;
+import com.mateus.creditanalysis.domain.Proposal;
 
 public interface ScoreCalculation {
 
-    int calculate(Proposals proposals);
+    int calculate(Proposal proposal);
 }

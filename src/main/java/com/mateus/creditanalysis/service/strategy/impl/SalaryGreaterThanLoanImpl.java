@@ -1,6 +1,6 @@
 package com.mateus.creditanalysis.service.strategy.impl;
 
-import com.mateus.creditanalysis.domain.Proposals;
+import com.mateus.creditanalysis.domain.Proposal;
 import com.mateus.creditanalysis.service.strategy.ScoreCalculation;
 import org.springframework.stereotype.Component;
 
@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 public class SalaryGreaterThanLoanImpl implements ScoreCalculation {
 
     @Override
-    public int calculate(Proposals proposals) {
-        return salaryGreaterThanLoan(proposals) ? 100 : 0;
+    public int calculate(Proposal proposal) {
+        return incomeGreaterThanRequestedAmount(proposal) ? 100 : 0;
     }
 
-    private boolean salaryGreaterThanLoan(Proposals proposals) {
-        return proposals.getUsuario().getRenda() > proposals.getValorSolicitado();
+    private boolean incomeGreaterThanRequestedAmount(Proposal proposal) {
+        return proposal.getUser().getIncome() > proposal.getRequestedAmount();
     }
 }
